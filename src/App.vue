@@ -1,17 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    My tasks
+    <SocketClient />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SocketClient from './components/SocketClient.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    SocketClient,
+  },
+};
 </script>
 
 <style>
