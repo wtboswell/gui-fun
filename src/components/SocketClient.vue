@@ -5,23 +5,24 @@
         <p v-else>Loading message...</p>
     </div>
   </template>
-  
+
   <script>
   import io from 'socket.io-client';
-  
+
   export default {
     name: 'SocketClient',
     data() {
-      return {
-        message: '',
-      };
+        return {
+            message: '',
+        };
     },
     mounted() {
       const socket = io('http://localhost:3030');
       socket.on('message', (msg) => {
+        const currentTime = new Date().toLocaleString();
         this.message = msg;
+        socket.emit('message', `Hello from the client at ${currentTime}.`);
       });
     },
   };
   </script>
-  

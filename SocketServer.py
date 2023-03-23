@@ -22,6 +22,10 @@ def send_message():
     sio.emit('message', f'This is a periodic message {time.time()}')
     eventlet.spawn_after(1, send_message) # Send message again after 1 second
 
+@sio.on('message')
+def handle_message(sid, data):
+    print('Received message from client:', data)
+
 if __name__ == '__main__':
     eventlet.spawn(send_message) # Start sending messages periodically
     eventlet.wsgi.server(eventlet.listen(('', 3030)), app) # Start socketio server
