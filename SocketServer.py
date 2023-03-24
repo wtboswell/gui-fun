@@ -8,8 +8,6 @@ app = socketio.WSGIApp(sio)
 
 logging.basicConfig(level=logging.ERROR)
 
-global counter
-
 @sio.event
 def connect(sid, environ):
     print('Client connected:', sid)

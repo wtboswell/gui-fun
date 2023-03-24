@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    My tasks
-    <SocketClient />
+    gui-fun
+    <ConnectionState />
+    <ConnectionManager />
+    <MessageHandler />
   </div>
 </template>
 
 <script>
-import SocketClient from './components/SocketClient.vue';
+import ConnectionState from './components/ConnectionState.vue';
+import ConnectionManager from './components/ConnectionManager.vue';
+import MessageHandler from './components/MessageHandler.vue';
 
 export default {
   name: 'App',
   components: {
-    SocketClient,
+    ConnectionState,
+    ConnectionManager,
+    MessageHandler
   },
 };
 </script>
